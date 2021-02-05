@@ -1,5 +1,5 @@
 #!groovy
-// Check slave3 properties
+// ip address on remote server
 properties([disableConcurrentBuilds()])
 
 pipeline {
@@ -8,6 +8,7 @@ pipeline {
         }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
     }
     stages {
         stage("First step") {
@@ -15,10 +16,10 @@ pipeline {
                 sh 'ssh root@10.82.2.13 \'hostname\''
             }
         }
-        stage("Second step") {
-            steps {
-                sh 'ssh root@10.82.2.13 \'uptime\''
-            }
-        }
+//        stage("Second step") {
+//            steps {
+//                sh 'ssh root@10.82.2.13 \'uptime\''
+//            }
+//        }
     }
 }
