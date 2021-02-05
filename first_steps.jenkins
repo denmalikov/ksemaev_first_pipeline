@@ -16,10 +16,10 @@ pipeline {
                 sh 'ssh root@192.168.1.56 \'ip address\''
             }
         }
-//        stage("Second step") {
-//            steps {
-//                sh 'ssh root@10.82.2.13 \'uptime\''
-//            }
-//        }
+        stage("Second step") {
+            steps {
+                sh 'ssh root@192.168.1.56 \'uptime\''
+            }
+        }
     }
 }
